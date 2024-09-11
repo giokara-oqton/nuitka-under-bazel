@@ -1,0 +1,17 @@
+load("@pip_deps//:requirements.bzl", "requirement")
+load("@rules_python//python:defs.bzl", "py_binary")
+load("//build_tools/lint:lint.bzl", "add_lint_tests")
+
+py_binary(
+    name = "nuitka",
+    srcs = ["nuitka_wrapper.py"],
+    main = "nuitka_wrapper.py",
+    visibility = [
+        "//visibility:public",
+    ],
+    deps = [
+        requirement("nuitka"),
+    ],
+)
+
+add_lint_tests()

@@ -1,0 +1,21 @@
+load("@pip_deps//:requirements.bzl", "requirement")
+load("@rules_python//python:defs.bzl", "py_binary")
+load("//build_tools/nuitka:nuitka_binary.bzl", "nuitka_binary")
+
+py_binary(
+    name = "test1_main",
+    srcs = ["main.py"],
+    main = "main.py",
+    data = [
+        "config.yml",
+    ]
+    deps = [
+        requirement("pyyaml"),
+    ],
+)
+
+nuitka_binary(
+    name = "test1_nuitka_bin",
+    main = "src/test1/main.py",
+    target = "//src/test1:test1_main",
+)
