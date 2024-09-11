@@ -15,24 +15,20 @@ http_archive(
     url = "https://github.com/bazelbuild/rules_python/archive/refs/tags/0.31.0.tar.gz",
 )
 
-load("@rules_python//python:pip.bzl", "pip_parse")
-
 load("@rules_python//python:repositories.bzl", "py_repositories")
 
 py_repositories()
 
-load("@rules_python//python:repositories.bzl", "python_register_multi_toolchains")
+load("@rules_python//python:repositories.bzl", "python_register_toolchains")
 
-python_register_multi_toolchains(
-    name = "oqton_python",
-    default_version = default_python_version,
-    ignore_root_user_error = True,
-    python_versions = [
-        "3.10",
-    ],
+python_register_toolchains(
+    name = "python_3_10",
+    # Available versions are listed in @rules_python//python:versions.bzl.
+    # We recommend using the same version your team is already standardized on.
+    python_version = "3.10",
 )
 
-load("@oqton_python//3.10:defs.bzl", python_interpreter_target = "interpreter")
+load("@python_3_10//:defs.bzl", python_interpreter_target = "interpreter")
 load("@rules_python//python:pip.bzl", "pip_parse")
 
 pip_parse(
