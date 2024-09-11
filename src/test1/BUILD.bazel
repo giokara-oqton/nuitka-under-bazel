@@ -8,7 +8,7 @@ py_binary(
     main = "main.py",
     data = [
         "config.yml",
-    ]
+    ],
     deps = [
         requirement("pyyaml"),
     ],
