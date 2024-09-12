@@ -8,8 +8,12 @@ py_binary(
     visibility = [
         "//visibility:public",
     ],
+    # NOTE One caveat is that required packages for targets
+    # built with Nuitka need to be provided here. Nuitka needs
+    # to have access to the cached site-packages directory in
+    # order to function correctly.
     deps = [
         requirement("nuitka"),
-        requirement("patchelf"),
+        requirement("pyyaml"),
     ],
 )
