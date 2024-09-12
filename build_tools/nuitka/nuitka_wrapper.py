@@ -7,6 +7,8 @@ if 'BUILD_WORKING_DIRECTORY' in os.environ:
 
 import sys
 
+os.environ['PATH'] = '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin' + os.pathsep + os.getenv('PATH', '')
+print('PATH', os.getenv('PATH', ''))
 print('sys.prefix:', sys.prefix)
 
 if __name__ == '__main__':

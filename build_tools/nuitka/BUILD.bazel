@@ -10,5 +10,6 @@ py_binary(
     ],
     deps = [
         requirement("nuitka"),
+        requirement("patchelf"),
     ],
 )

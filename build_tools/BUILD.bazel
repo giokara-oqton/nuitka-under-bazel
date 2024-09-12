@@ -1,0 +1,23 @@
+load("@pip_deps//:requirements.bzl", "requirement")
+load("@rules_python//python:defs.bzl", "py_binary", "py_library")
+
+exports_files([
+    "generate_python_requirements.py",
+])
+
+py_binary(
+    name = "python_requirements",
+    srcs = ["generate_python_requirements.py"],
+    args = [
+        "--requirements_file=$(rootpath //:requirements.txt)",
+        "--requirements_lock_file=$(rootpath //:requirements_lock.txt)",
+    ],
+    data = [
+        "//:requirements.txt",
+        "//:requirements_lock.txt",
+    ],
+    main = "generate_python_requirements.py",
+    deps = [
+        requirement("pip-tools"),
+    ],
+)

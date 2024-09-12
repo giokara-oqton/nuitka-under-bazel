@@ -1,2 +1,4 @@
 Nuitka
+patchelf
+pip-tools
 pyyaml
