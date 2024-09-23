@@ -1,5 +1,6 @@
 # Minimal example of running Nuitka under Bazel
 
+This repo is inspired on the nice work already done [here](https://github.com/chaosct/bazel_nuitka_test). In this repo, we try to make nuitka binaries further available as dependencies for subsequent Bazel targets.
 The goal of this repository is to compile Python targets created with [Bazel buildsystem](https://github.com/bazelbuild/bazel) into binary executables through the use of Nuitka.
 This repo expects Bazel to be available, either through [Bazelisk](https://github.com/bazelbuild/bazelisk) or with [Bazel version 6.5.0](https://github.com/bazelbuild/bazel/releases/tag/6.5.0) installed.
 It has been tested on Ubuntu 24.04.
